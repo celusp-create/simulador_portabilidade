@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ title or "Simulador – Portabilidade" }}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header>
+    <h1>Simulador – Portabilidade de Consignado</h1>
+  </header>
+
+  <main>
+    {% with msgs = get_flashed_messages() %}
+      {% if msgs %}
+        <ul class="flash">{% for m in msgs %}<li>{{m}}</li>{% endfor %}</ul>
+      {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>

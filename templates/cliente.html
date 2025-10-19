@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Dados do Cliente</h2>
+<form method="post">
+  <label>Primeiro Nome:
+    <input type="text" name="nome" required>
+  </label><br>
+  <label>Data de Nascimento:
+    <input type="date" name="nasc" required>
+  </label><br>
+  <label>Taxa Portabilidade (% a.m.) – opcional:
+    <input type="number" step="0.01" name="taxa_port">
+  </label><br>
+  <button class="btn azul" type="submit">Confirmar</button>
+</form>
+{% endblock %}

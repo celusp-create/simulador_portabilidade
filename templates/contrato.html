@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Dados do Contrato</h2>
+<form method="post">
+  <label>Nome do Banco:
+    <input type="text" name="banco" required>
+  </label><br>
+  <label>Nº Banco:
+    <input type="text" name="banco_num" required>
+  </label><br>
+  <label>ID Contrato:
+    <input type="text" name="id" required>
+  </label><br>
+  <label>Valor Emprestado Bruto:
+    <input type="number" step="0.01" name="valor" required>
+  </label><br>
+  <label>Quantidade de Parcelas:
+    <input type="number" name="parcelas" required>
+  </label><br>
+  <label>Data 1ª Parcela:
+    <input type="date" name="data_ini" required>
+  </label><br>
+  <label>Prestação Mensal:
+    <input type="number" step="0.01" name="prestacao" required>
+  </label><br>
+
+  <fieldset>
+    <legend>Possui Taxa Juros mensal?</legend>
+    <label><input type="checkbox" name="possui_taxa" id="ck_taxa"
+           onchange="document.getElementById('tx').disabled=!this.checked;"> Sim</label>
+    <input type="number" step="0.01" name="taxa_informada" id="tx" disabled placeholder="% a.m.">
+  </fieldset>
+
+  <fieldset>
+    <legend>Possui CET mensal?</legend>
+    <label><input type="checkbox" name="possui_cet" id="ck_cet"
+           onchange="document.getElementById('cet').disabled=!this.checked;"> Sim</label>
+    <input type="number" step="0.01" name="cet_mensal" id="cet" disabled placeholder="% a.m.">
+  </fieldset>
+
+  <button class="btn azul" name="adicionar_outro">Adicionar Outro Contrato</button>
+  <button class="btn verde" type="submit">Finalizar</button>
+</form>
+{% endblock %}

@@ -1,0 +1,25 @@
+body{font-family:Arial,Helvetica,sans-serif;margin:0 auto;max-width:900px;padding:10px;}
+header{text-align:center;margin-bottom:20px;}
+h1{color:#003C71;}
+.btn{padding:8px 15px;border-radius:4px;color:#fff;text-decoration:none;margin:3px;display:inline-block;}
+.btn.azul{background:#0065BD;}
+.btn.verde{background:#7DBA16;}
+.btn.amarelo{background:#F0A500;color:#222;}
+fieldset{margin:10px 0; border:1px solid #ccc; padding:10px;} /* Adicionado borda e padding para fieldset */
+legend{font-weight:bold;} /* Estilo para o título do fieldset */
+.tabela{width:100%;border-collapse:collapse;font-size:0.9em; margin-top: 15px;} /* Adicionado margin-top */
+.tabela th,.tabela td{border:1px solid #ccc;padding:4px;text-align:center;}
+.flash{list-style:none;padding:0;margin:0 0 10px;}
+.flash li{background:#DDF;border:1px solid #AAC;padding:5px;}
+.alerta{color:#D00;font-weight:bold;}
+form label{display:block; margin-bottom: 8px;} /* Melhorar o layout dos labels */
+form input[type="text"],
+form input[type="number"],
+form input[type="date"]{
+    width: calc(100% - 22px); /* Ajustar largura para input */
+    padding: 8px 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+form button{margin-top: 15px; margin-right: 10px;} /* Espaçamento entre botões */

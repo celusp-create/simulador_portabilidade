@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Relatório – {{c.id}}</h2>
+<p><strong>Cliente:</strong> {{cliente.nome}}</p>
+<p><strong>Banco:</strong> {{c.banco}} ({{c.banco_num}})</p>
+<p><strong>Saldo devedor atual:</strong> {{ "%.2f"|format(c.saldo_atual) }}</p>
+<p><strong>Prazo remanescente:</strong> {{c.parcelas_rest}}</p>
+<p><strong>Taxa calculada:</strong> {{ "%.2f"|format(c.taxa_calc*100) }} %</p>
+{% if c.taxa_port %}
+   <p><strong>Prestação Portabilidade:</strong> {{ "%.2f"|format(c.prest_port) }}</p>
+{% endif %}
+<hr>
+{{tabela | safe}}
+{% endblock %}

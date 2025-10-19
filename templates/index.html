@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+  {% if not cliente %}
+     <p>Bem-vindo! Comece informando os dados do cliente.</p>
+     <a class="btn azul" href="{{ url_for('cliente') }}">Cadastrar Cliente</a>
+  {% else %}
+     <h2>Olá, {{cliente.nome}}!</h2>
+     <p>Total de contratos (idade ≤ 79a 8m): <strong>{{total_contratos}}</strong></p>
+     <p>Valor total dos saldos a portar (R$): <strong>{{"%.2f"|format(total_saldo)}}</strong></p>
+
+     <div class="botoes">
+        <a class="btn azul"  href="{{ url_for('contrato') }}">Gerar Evolução</a>
+        <a class="btn verde" href="{{ url_for('consolidado') }}">Consolidar p/ Impressão</a>
+        <a class="btn amarelo" href="{{ url_for('limpar') }}">Limpar Planilha</a>
+     </div>
+
+     {% if contratos %}
+       <h3>Contratos cadastrados:</h3>
+       <ul>
+       {% for c in contratos %}
+         <li><a href="{{ url_for('relatorio', idx=loop.index0) }}">{{c.id}} – {{c.banco}}</a>
+           (saldo: {{ "%.2f"|format(c.saldo_atual) }})</li>
+       {% endfor %}
+       </ul>
+     {% endif %}
+  {% endif %}
+{% endblock %}
+

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Consolidado para Impressão – {{cliente.nome}}</h2>
+{% if contratos %}
+  {% for c in contratos %}
+    <h3>{{c.id}} – {{c.banco}}</h3>
+    <p>Saldo: {{ "%.2f"|format(c.saldo_atual) }} | Parc. Rest.: {{c.parcelas_rest}}
+       | Idade ao fim: {{c.anos}}a {{c.meses}}m</p>
+    <hr>
+  {% endfor %}
+  {% if reprov %}
+    <p class="alerta">{{reprov}} contrato(s) não incluídos (idade > 79a 8m).</p>
+  {% endif %}
+{% else %}
+  <p>Nenhum contrato dentro do limite de idade.</p>
+{% endif %}
+{% endblock %}
